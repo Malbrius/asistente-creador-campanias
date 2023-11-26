@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="esp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente Creador de Campañas</title>
+</head>
+<body>
+    <div> <!-- Creación Campaña -->
+        <label for="Fin Gestion"> Nombre de la campaña</label>
+        <br> 
+        <input type="text" name="NombreCampaña" id="">
+        <fieldset>
+            <legend>Añadir las primeras preguntas?</legend>
+            <label for="Fin Gestion"> Contesto cliente?</label> 
+            <input type="checkbox" name="Campaña" id="">
+            <label for="Fin Gestion"> Acepto realizar encuesta?</label> 
+            <input type="checkbox" name="Campaña" id="">
+        </fieldset>
+        <fieldset>
+            <legend>Fines de Gestion</legend>
+            <label for="Fin Gestion"> Seleccionar todos</label> 
+            <input type="checkbox" name="Campaña" id="-1">
+            <br>
+            <label for="Fin Gestion"> Efectiva</label> 
+            <input type="checkbox" name="Campaña" id="1">
+            <br>
+            <label for="Fin Gestion"> No acepto realizar la encuesta</label> 
+            <input type="checkbox" name="Campaña" id="9">
+            <br>
+            <label for="Fin Gestion"> Abandono Encuesta</label> 
+            <input type="checkbox" name="Campaña" id="8">
+            <br>
+            <label for="Fin Gestion"> Llamar Despues</label> 
+            <input type="checkbox" name="Campaña" id="12">
+            <br>
+            <label for="Fin Gestion"> Recado</label> 
+            <input type="checkbox" name="Campaña" id="4">
+            <br>
+            <label for="Fin Gestion"> Equivocado</label> 
+            <input type="checkbox" name="Campaña" id="6">
+            <br>
+            <label for="Fin Gestion"> Colgo</label> 
+            <input type="checkbox" name="Campaña" id="7">
+            <br>
+            <label for="Fin Gestion"> No responde</label> 
+            <input type="checkbox" name="Campaña" id="23">
+            <br>
+            <label for="Fin Gestion"> Mensaje de voz</label> 
+            <input type="checkbox" name="Campaña" id="24">
+            <br>
+            <label for="Fin Gestion"> Cliente Fallecio</label> 
+            <input type="checkbox" name="Campaña" id="10">
+            <br>
+            <label for="Fin Gestion"> Ya no vive ahi</label> 
+            <input type="checkbox" name="Campaña" id="11">
+            <br>
+        </fieldset>
+        <label for="numpreguntas">Total de Preguntas</label>
+        <input maxlength="3" id="preguntas" placeholder="Solo numeros" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        <br>
+        <input type="button" value="Crear Campaña">
+    </div>
+    <div> <!--Formular Preguntas-->
+
+    </div>
+
+    <script>
+        function agregarInputs() {
+            var cantidad = document.getElementById("preguntas").value;
+            var contenedor = document.getElementById("contenedorInputs");
+            contenedor.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevos inputs
+    
+            for (var i = 0; i < cantidad; i++) {
+                var nuevoInput = document.createElement("input");
+                nuevoInput.type = "text";
+                nuevoInput.name = "input" + (i + 1);
+                nuevoInput.placeholder = "Texto " + (i + 1);
+                contenedor.appendChild(nuevoInput);
+            }
+        }
+    </script>
+</body>
+</html>
