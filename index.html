@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asistente Creador de Campañas</title>
 </head>
-<body>
-    <div> <!-- Creación Campaña -->
-        <label for="Fin Gestion"> Nombre de la campaña</label>
-        <br> 
+    <div> <!-- Creacción Campaña -->
+        <label for="Campana"> Nombre de la campaña</label>
+        <br> <!--Preguntas Defecto-->
         <input type="text" name="NombreCampaña" id="">
         <fieldset>
             <legend>Añadir las primeras preguntas?</legend>
@@ -17,7 +16,19 @@
             <label for="Fin Gestion"> Acepto realizar encuesta?</label> 
             <input type="checkbox" name="Campaña" id="">
         </fieldset>
+    </head>
+    <body>
+        <form id="formularioPreguntas">
+            <label for="cantidad">Ingrese la cantidad de preguntas:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" max="99" maxlength="2" oninput="agregarInputs()">
+        </form>
+        
+        <div id="contenedorPreguntasRespuestas"></div>
+        
+        <script src="script.js"></script>
+
         <fieldset>
+            <!--Fines de gestion-->
             <legend>Fines de Gestion</legend>
             <label for="Fin Gestion"> Seleccionar todos</label> 
             <input type="checkbox" name="Campaña" id="-1">
@@ -56,29 +67,5 @@
             <input type="checkbox" name="Campaña" id="11">
             <br>
         </fieldset>
-        <label for="numpreguntas">Total de Preguntas</label>
-        <input maxlength="3" id="preguntas" placeholder="Solo numeros" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-        <br>
-        <input type="button" value="Crear Campaña">
-    </div>
-    <div> <!--Formular Preguntas-->
-
-    </div>
-
-    <script>
-        function agregarInputs() {
-            var cantidad = document.getElementById("preguntas").value;
-            var contenedor = document.getElementById("contenedorInputs");
-            contenedor.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevos inputs
-    
-            for (var i = 0; i < cantidad; i++) {
-                var nuevoInput = document.createElement("input");
-                nuevoInput.type = "text";
-                nuevoInput.name = "input" + (i + 1);
-                nuevoInput.placeholder = "Texto " + (i + 1);
-                contenedor.appendChild(nuevoInput);
-            }
-        }
-    </script>
-</body>
-</html>
+    </body>
+    </html>

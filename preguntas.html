@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas</title>    
+</head>
+<body>
+    <fieldset>
+        <legend>Añadir las primeras preguntas?</legend>
+        <label for="Fin Gestion"> Contesto cliente?</label> 
+        <input type="checkbox" name="Campaña" id="cbx_Contesto">
+        <label for="Fin Gestion"> Acepto realizar encuesta?</label> 
+        <input type="checkbox" name="Campaña" id="cbx_Encuesta">
+        <br>
+        <label for="Fin Gestion"> Agregar Fin Gestión Encuesta Efectiva?</label> 
+        <input type="checkbox" name="Campaña" id="cbx_Efectiva">
+        <label for="Fin Gestion"> Agregar Fin Gestión Encuesta <h3>NO</h3> Efectiva?</label> 
+        <input type="checkbox" name="Campaña" id="cbx_No_Efectiva">
+    </fieldset>
+    <form id="formularioPreguntas">
+        <label for="cantidad">Ingrese la cantidad de preguntas:</label>
+        <input type="number" id="cantidad" name="cantidad" min="1" max="99" maxlength="2" oninput="agregarInputs()">
+    </form>
+    
+    <div id="contenedorPreguntasRespuestas"></div>
+    <script src="script.js"></script>
+</body>
+</html> 
