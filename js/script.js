@@ -1,3 +1,5 @@
+//let registraPreguntas = object.create(pregunta);
+//let campana= { nombre: document.getElementById("campana")}
 function agregarInputs() {
     document.getElementById("contenedorRespuestas").innerHTML = '';
     var cantidad = document.getElementById("cantidad").value;
@@ -12,14 +14,24 @@ function agregarInputs() {
         nuevaPregunta.name = "pregunta" + (i + 1);
         nuevaPregunta.placeholder = "Pregunta " + (i + 1);
         contenedorPreguntas.appendChild(nuevaPregunta);
+        var radiox2 =document.createElement("input");
+        radiox2.setAttribute("type","checkbox");
+        radiox2.setAttribute("name","seRepitex2");
+        radiox2.setAttribute("value","se repite 1 vez?")
+        var radiox3 =document.createElement("input");
+        radiox3.setAttribute("type","checkbox");
+        radiox3.setAttribute("name","seRepitex3");
+        radiox3.setAttribute("value","se repite 2 veces?")
+        contenedorPreguntas.appendChild(radiox2);
+        contenedorPreguntas.appendChild(radiox3);
         contenedorPreguntas.appendChild(document.createElement("br"));
         // ingresar el total  de respuestas
         var cantidadRespuestas = document.createElement("input");
         cantidadRespuestas.type = "number";
         cantidadRespuestas.name = "cantidadRespuestas" + (i + 1);
         cantidadRespuestas.placeholder = "Cantidad de respuestas";
-        cantidadRespuestas.min = "-1"; // Abierto
-        cantidadRespuestas.max = "99";
+        cantidadRespuestas.min = "-1"; // Pregunta Abierta
+        cantidadRespuestas.max = "99"; //del 1 al 99 preguntas opcion multiple
         cantidadRespuestas.maxLength= "2";
         //boton pa añadir respuestas
         var btnAñadirRespuestas = document.createElement("button");
@@ -51,7 +63,8 @@ function agregarRespuestas(preguntaIndex, inputCantidadRespuestas) {
 
     llenarContenedorRespuestas(preguntaIndex, cantidadRespuestas, contenedorRespuestaPregunta);
 }
-
+//obtinee los divrespuestas generados para limpiarlos en caso de que se implementen nuevas respuestas
+//o se reseteen las preguntas
 function obtenerDivRespuestas(id) {
     let contenedorRespuestaPregunta = document.getElementById(id)
 
@@ -71,12 +84,20 @@ function llenarContenedorRespuestas(preguntaIndex, cantidadRespuestas, contenedo
         console.log(nuevaRespuesta.id);
         nuevaRespuesta.placeholder = "Pregunta " + preguntaIndex + " Respuesta " + (j + 1) ;
         contenedorRespuestaPregunta.appendChild(nuevaRespuesta);
-        contenedorRespuestaPregunta.appendChild(document.createElement("br"));   
+        contenedorRespuestaPregunta.appendChild(document.createElement("br"));
     }
 }
 
-//{nombrecampana / index / pregunta / es opción multiple? 5 : 3}
+//{nombreCampana, indice, pregunta, cantidadRespuestas, esOpcionMultiple? 5 : 3, cantidadPreguntas}
+/*function registraPreguntas(nombreCampana, preguntaIndex, pregunta, cantidadRespuestas, esOpcionMultiple)
+{
+        var cantidad = document.getElementById("cantidad").value;
 
+    for (let i = 0; i < cantidad.length; i++) {
+        const element = array[i];
+        
+    }
+}*/
 // Modelo de pregunta
 // en el modelo
 
