@@ -1,4 +1,3 @@
-¿Has probado con este código?
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +9,14 @@
     <fieldset>
         <!--Fines de gestion-->
         <legend>Fines de Gestion</legend>
-        <label for="Fin Gestion"> Seleccionar todos</label> 
-        <input type="checkbox" name="Todos" id="Seleccionar-Todos">
-        <br>
+        <fieldset>
+            <label for="Fin Gestion"> Seleccionar todos</label> 
+            <input type="radio" name="Todos" id="Seleccionar-Todos">
+            
+            <label for="Fin Gestion"> (des)Seleccionar todos</label> 
+            <input type="radio" name="Todos" id="Seleccionarnt-Todos" checked>
+            <br>
+        </fieldset>
         <label for="Fin Gestion"> Efectiva</label> 
         <input type="checkbox" name="Efectiva" id="1">
         <br>
@@ -47,11 +51,22 @@
         <input type="checkbox" name="NoViveAhi" id="11">
         <br>
         <script >
-            var checkboxes = document.querySelectorAll('.checkbox-item');
+            // var checkboxes = document.getElementsByTagName('input');
+            var checkboxes = [].filter.call(document.getElementsByTagName('input'), element => element.type == 'checkbox')
             var checkbox = document.getElementById('Seleccionar-Todos');
+            var checkboxnt = document.getElementById('Seleccionarnt-Todos');
             checkbox.addEventListener('click', function() {
                 for (var checkbox of checkboxes) {
-                    checkbox.checked = this.checked;
+                    // if (checkbox.type == 'checkbox') {
+                        checkbox.checked = true;
+                    // }
+                }            
+            });
+            checkboxnt.addEventListener('click', function() {
+                for (var checkbox of checkboxes) {
+                    // if (checkbox.type == 'checkbox') {
+                        checkbox.checked = false;
+                    // }
                 }            
             });
         </script>

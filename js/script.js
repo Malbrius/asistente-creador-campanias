@@ -1,4 +1,5 @@
 function agregarInputs() {
+    document.getElementById("contenedorRespuestas").innerHTML = '';
     var cantidad = document.getElementById("cantidad").value;
     // Verificar y ajustar la cantidad si excede el máximo permitido
     cantidad = Math.min(cantidad, 99);
@@ -12,20 +13,15 @@ function agregarInputs() {
         nuevaPregunta.placeholder = "Pregunta " + (i + 1);
         contenedorPreguntas.appendChild(nuevaPregunta);
         contenedorPreguntas.appendChild(document.createElement("br"));
-        // Input numero de respuestas
+        // ingresar el total  de respuestas
         var cantidadRespuestas = document.createElement("input");
         cantidadRespuestas.type = "number";
         cantidadRespuestas.name = "cantidadRespuestas" + (i + 1);
         cantidadRespuestas.placeholder = "Cantidad de respuestas";
-        cantidadRespuestas.min = "-1";
+        cantidadRespuestas.min = "-1"; // Abierto
         cantidadRespuestas.max = "99";
         cantidadRespuestas.maxLength= "2";
-        /*cantidadRespuestas.oninput = function(index,  inputCantidadRespuestas) {
-            return function() {
-                agregarRespuestas(index, inputCantidadRespuestas);
-            };
-        }(i + 1, cantidadRespuestas);
-*/
+        //boton pa añadir respuestas
         var btnAñadirRespuestas = document.createElement("button");
         btnAñadirRespuestas.name = "btnAñadirRespuestas";
         btnAñadirRespuestas.innerText = "Añadir Respuestas";
@@ -40,24 +36,52 @@ function agregarInputs() {
     }
 }       
 
+// Create div for every question
+// Rebuild div every time a this function is called
 function agregarRespuestas(preguntaIndex, inputCantidadRespuestas) {
-    var contenedorPreguntas = document.getElementById("contenedorPreguntas");
     // Obtener el valor del input de cantidad de respuestas
     var cantidadRespuestas = parseInt(inputCantidadRespuestas.value);
-    let existeDuplicados = false;
-    //console.log(`Cantidad de respuestas: ${cantidadRespuestas}`);
+    // Donde van todas las repuestas
+    const contenedorRespuestas = document.getElementById("contenedorRespuestas");
+    // Contenedor que contiene todas las respuestas de una pregunta dada
+    const contenedorRespuestaPregunta = obtenerDivRespuestas(`respuestasPregunta${preguntaIndex}`)
+
+    contenedorRespuestas.appendChild(contenedorRespuestaPregunta)
+    contenedorRespuestaPregunta.setAttribute('id', `respuestasPregunta${preguntaIndex}`)
+
+    llenarContenedorRespuestas(preguntaIndex, cantidadRespuestas, contenedorRespuestaPregunta);
+}
+
+function obtenerDivRespuestas(id) {
+    let contenedorRespuestaPregunta = document.getElementById(id)
+
+    if (contenedorRespuestaPregunta == null) {
+        contenedorRespuestaPregunta = document.createElement("div")
+    }
+    contenedorRespuestaPregunta.innerHTML = '';
+
+    return contenedorRespuestaPregunta;
+}
+
+function llenarContenedorRespuestas(preguntaIndex, cantidadRespuestas, contenedorRespuestaPregunta) {
     for (var j = 0; j < cantidadRespuestas; j++) {
         var nuevaRespuesta = document.createElement("input");
         nuevaRespuesta.type = "text";
         nuevaRespuesta.id = "respuesta" + preguntaIndex + "-" + (j + 1);
         console.log(nuevaRespuesta.id);
         nuevaRespuesta.placeholder = "Pregunta " + preguntaIndex + " Respuesta " + (j + 1) ;
-        contenedorPreguntas.appendChild(nuevaRespuesta);
-        contenedorPreguntas.appendChild(document.createElement("br"));   
+        contenedorRespuestaPregunta.appendChild(nuevaRespuesta);
+        contenedorRespuestaPregunta.appendChild(document.createElement("br"));   
     }
 }
 
+//{nombrecampana / index / pregunta / es opción multiple? 5 : 3}
+
+// Modelo de pregunta
+// en el modelo
+
 function generarCSV(datos) {
+    alert("ya guardé ue")
     const csvFilas = [];
     const encabezados = Object.keys(datos[0]);
     csvFilas.push(encabezados.join(','));
@@ -78,3 +102,4 @@ function generarCSV(datos) {
     a.click();
  }
 
+ 
