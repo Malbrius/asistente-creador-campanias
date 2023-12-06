@@ -1,0 +1,60 @@
+¿Has probado con este código?
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fines de Gestion</title>
+</head>
+<body>
+    <fieldset>
+        <!--Fines de gestion-->
+        <legend>Fines de Gestion</legend>
+        <label for="Fin Gestion"> Seleccionar todos</label> 
+        <input type="checkbox" name="Todos" id="Seleccionar-Todos">
+        <br>
+        <label for="Fin Gestion"> Efectiva</label> 
+        <input type="checkbox" name="Efectiva" id="1">
+        <br>
+        <label for="Fin Gestion"> No acepto realizar la encuesta</label> 
+        <input type="checkbox" name="NoAcepto" id="9">
+        <br>
+        <label for="Fin Gestion"> Abandono Encuesta</label> 
+        <input type="checkbox" name="Abandono" id="8">
+        <br>
+        <label for="Fin Gestion"> Llamar Despues</label> 
+        <input type="checkbox" name="LlamarDespues" id="12">
+        <br>
+        <label for="Fin Gestion"> Recado</label> 
+        <input type="checkbox" name="Recado" id="4">
+        <br>
+        <label for="Fin Gestion"> Equivocado</label> 
+        <input type="checkbox" name="Equivocado" id="6">
+        <br>
+        <label for="Fin Gestion"> Colgo</label> 
+        <input type="checkbox" name="Colgo" id="7">
+        <br>
+        <label for="Fin Gestion"> No responde</label> 
+        <input type="checkbox" name="NoResponde" id="23">
+        <br>
+        <label for="Fin Gestion"> Mensaje de voz</label> 
+        <input type="checkbox" name="MensajeDeVoz" id="24">
+        <br>
+        <label for="Fin Gestion"> Cliente Fallecio</label> 
+        <input type="checkbox" name="ClienteFallecio" id="10">
+        <br>
+        <label for="Fin Gestion"> Ya no vive ahi</label> 
+        <input type="checkbox" name="NoViveAhi" id="11">
+        <br>
+        <script >
+            var checkboxes = document.querySelectorAll('.checkbox-item');
+            var checkbox = document.getElementById('Seleccionar-Todos');
+            checkbox.addEventListener('click', function() {
+                for (var checkbox of checkboxes) {
+                    checkbox.checked = this.checked;
+                }            
+            });
+        </script>
+    </fieldset>
+</body>
+</html>

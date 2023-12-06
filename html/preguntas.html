@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="esp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas</title>    
+</head>
+<body>
+    <fieldset>
+        <legend>¿Añadir las preguntas por defecto?</legend>
+        <label for="Fin Gestion"> Contesto cliente?</label> 
+        <input type="checkbox" name="Campaña" id="cbx_Contesto">
+        <label for="Fin Gestion"> Acepto realizar encuesta?</label> 
+        <input type="checkbox" name="Campaña" id="cbx_Encuesta">
+        <br>
+        <label for="Fin Gestion"> Agregar Fin Gestión Encuesta Efectiva?</label> 
+        <input type="checkbox" name="Campaña" id="cbx_Efectiva">
+        <br>
+        <label for="Fin Gestion"> Agregar Fin Gestión Encuesta <b>NO</b> Efectiva?</label> 
+        <input type="checkbox" name="Campaña" id="cbx_No_Efectiva">
+    </fieldset>
+    <form id="formularioPreguntas">
+        <label for="cantidad">Ingrese la cantidad de preguntas:</label><br>
+        <input type="number" id="cantidad" name="cantidad" min="1" max="99" maxlength="2">
+        <input type="button" id="btnAnadirPreguntas" name="btnPreguuntas" value="Añadir Preguntas" onclick="agregarInputs()">
+    </form>
+    <fieldset>
+        <div id="contenedorPreguntas"></div>
+        <script src="/js/script.js"></script>
+    </fieldset>
+    <input type="button" id ="GuardarPreguntasRespuestas" name = "btnGuardar" value = "Guardar Preguntas y Respuestas" onclick="a   ">
+
+</body>
+</html> 
