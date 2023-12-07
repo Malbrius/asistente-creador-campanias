@@ -14,6 +14,7 @@ function agregarInputs() {
         nuevaPregunta.name = "pregunta" + (i + 1);
         nuevaPregunta.placeholder = "Pregunta " + (i + 1);
         contenedorPreguntas.appendChild(nuevaPregunta);
+        //input  checbox
         var chckbx2 =document.createElement("input");
         chckbx2.setAttribute("type","checkbox");
         chckbx2.setAttribute("name",`Pregunta_${[i]}_seRepitex2`);
@@ -93,14 +94,22 @@ function llenarContenedorRespuestas(preguntaIndex, cantidadRespuestas, contenedo
 {
         var cantidad = document.getElementById("cantidad").value;
 
-    for (let i = 0; i < cantidad.length; i++) {
-        const element = array[i];
+    for (let i = 0; i < cantidad.length; i++) {  
         
     }
 }*/
 // Modelo de pregunta
 // en el modelo
-
+//cambiar numeros con el scroll
+let input = document.querySelector("input[type='number']");
+input.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    this.value = parseInt(this.value) + (e.deltaY > 0 ? -1 : 1);
+ });
+//intento de ignorar el 0
+//input.addEventListener('input', function() {
+//  this.value = this.value.replace(/^0+/, '');
+//});
 function generarCSV(datos) {
     alert("ya guardé ue")
     const csvFilas = [];
@@ -123,4 +132,3 @@ function generarCSV(datos) {
     a.click();
  }
 
- 
