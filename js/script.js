@@ -14,16 +14,16 @@ function agregarInputs() {
         nuevaPregunta.name = "pregunta" + (i + 1);
         nuevaPregunta.placeholder = "Pregunta " + (i + 1);
         contenedorPreguntas.appendChild(nuevaPregunta);
-        var radiox2 =document.createElement("input");
-        radiox2.setAttribute("type","checkbox");
-        radiox2.setAttribute("name","seRepitex2");
-        radiox2.setAttribute("value","se repite 1 vez?")
-        var radiox3 =document.createElement("input");
-        radiox3.setAttribute("type","checkbox");
-        radiox3.setAttribute("name","seRepitex3");
-        radiox3.setAttribute("value","se repite 2 veces?")
-        contenedorPreguntas.appendChild(radiox2);
-        contenedorPreguntas.appendChild(radiox3);
+        var chckbx2 =document.createElement("input");
+        chckbx2.setAttribute("type","checkbox");
+        chckbx2.setAttribute("name",`Pregunta_${[i]}_seRepitex2`);
+        chckbx2.setAttribute("value","se repite 1 vez?");
+        var chckbx3 =document.createElement("input");
+        chckbx3.setAttribute("type","checkbox");
+        chckbx3.setAttribute("name",`Pregunta_${[i]}_seRepitex3`);
+        chckbx3.setAttribute("value","se repite 2 veces?");
+        contenedorPreguntas.appendChild(chckbx2);
+        contenedorPreguntas.appendChild(chckbx3);
         contenedorPreguntas.appendChild(document.createElement("br"));
         // ingresar el total  de respuestas
         var cantidadRespuestas = document.createElement("input");
